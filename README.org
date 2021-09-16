@@ -1,0 +1,31 @@
+* System configuration for David Janssen
+
+** Structure
+
+This repo contains both the system-wide configuration used in conjunction with
+[[https://nixos.org/][NixOS]], as well as the user-config used with [[https://github.com/nix-community/home-manager][home-manager]]. The `./bin/mksys`
+build-script is responsible for copying the correct directories over to
+`/etc/nixos` or `~/.config/nixpkgs` respectively, and then running the
+rebuilding commands.
+
+This configuration is heavily based on [[https://github.com/gvolpe/nix-config]].
+
+The methods used herein are in no way guaranteed to be optimal, or even good,
+but they're the best that I've managed, and you may find some inspiration in
+them also.
+
+** Themes
+Themes are described in a central location, and each machine-specific
+configuration links to a particular theme. Rebuilding with `mksys home` manages
+to update the color-themes and wallpaper for nearly all the apps that I use.
+Only alacritty needs to be manually restarted.
+
+** Todos
+*** TODO add laptop config
+*** TODO add encrypted passwords, maybe use git-crypt?
+*** TODO add home-manager installation to build-script
+*** TODO add emacs-config distribution
+*** TODO make polybar use powerline-font features
+*** TODO improve on pinning mechanism, use niv?
+*** TODO add org-capture bindings to XMonad
+*** TODO add kmonad to home-manager

@@ -1,0 +1,77 @@
+#!/usr/bin/env fish
+
+# Parse args:
+# -c or --clean: purge destination folders before copy
+argparse 'c/clean' -- $argv
+
+set R (dirname (dirname (status -f))) # Rootdir for `syscfg` project
+set T ./machines/(hostname)/this.nix  # Config for this specific machine
+set H $HOME
+
+function theme_get -S
+    nix eval -f $R/$T theme.$argv[1]
+end
+
+function build_sys -S
+    echo "Updating system configuration"
+
+    if set -q _flag_c
+        echo ". Purging /etc/nixos"
+        sudo rm -r /etc/nixos/*
+    end
+
+    echo ". Copying config to /etc/nixos"
+    sudo mkdir -p /etc/nixos/machine/current
+    sudo mkdir -p /etc/nixos/theme
+    sudo cp -r $R/machines/(hostname)/* /etc/nixos/machine/current/
+    sudo cp -r $R/theme/*               /etc/nixos/theme/
+    sudo cp -r $R/system/*              /etc/nixos
+
+    echo ". Rebuilding system"
+    sudo nixos-rebuild -I nixpkgs=(cat $R/pinned/nixpkgs) "switch" --upgrade --show-trace \
+       2>&1 | sed 's/^/.   /'
+end
+
+function build_home -S
+    echo "Updating home configuration"
+
+    echo ". Creating cache state"
+    mkdir -p $H/.config/polybar/logs       # Polybar logs
+    touch $H/.config/polybar/logs/main.log
+    mkdir -p $H/dcs/mail                   # Maildir
+
+    if set -q _flag_c
+        echo ". Purging ~/.config/nixpkgs"
+        rm -r $H/.config/nixpkgs/*
+    end
+
+    # Home manager files
+    echo ". Copying home-manager config"
+    mkdir -p $H/.config/nixpkgs/machine/current
+    mkdir -p $H/.config/nixpkgs/theme
+    cp -r $R/machines/(hostname)/* $H/.config/nixpkgs/machine/current
+    cp -r $R/theme/*               $H/.config/nixpkgs/theme/
+    cp -r $R/home/*                $H/.config/nixpkgs/
+
+    echo ". Running home-manager switch"
+    home-manager "switch" --show-trace 2>&1 | sed 's/^/.   /'
+
+    echo ". Forcing restarts"
+    xmonad --restart
+    feh --bg-scale (theme_get wallpaper)
+    set -l themename \'(theme_get emacs-theme | string trim -c \")
+    emacsclient -e  "(load-theme $themename)" > /dev/null
+
+    # HACK: There must be a nixier way of doing this
+    echo ". Write theme setting to emacs"
+    echo "(setq doom-theme $themename)" > $HOME/.config/doom/my/theme.el
+end
+
+switch $argv[1]
+    case home
+        build_home
+    case sys
+        build_sys
+    case '*'
+        build_sys; and build_home
+end
