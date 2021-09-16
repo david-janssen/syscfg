@@ -3,9 +3,9 @@
 ** Structure
 
 This repo contains both the system-wide configuration used in conjunction with
-[[https://nixos.org/][NixOS]], as well as the user-config used with [[https://github.com/nix-community/home-manager][home-manager]]. The [[./bin/mksys][~mksys~]]
+[[https://nixos.org/][NixOS]], as well as the user-config used with [[https://github.com/nix-community/home-manager][home-manager]]. The [[./bin/mksys][mksys]]
 build-script is responsible for copying the correct directories over to
-~/etc/nixos~ or ~~/.config/nixpkgs~ respectively, and then running the
+~/etc/nixos~ or ~$HOME/.config/nixpkgs~ respectively, and then running the
 rebuilding commands.
 
 This configuration is heavily based on [[https://github.com/gvolpe/nix-config]].
