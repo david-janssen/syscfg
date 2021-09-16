@@ -21,11 +21,11 @@ to update the color-themes and wallpaper for nearly all the apps that I use.
 Only alacritty needs to be manually restarted.
 
 ** Todos
-*** TODO add laptop config
-*** TODO add encrypted passwords, maybe use git-crypt?
-*** TODO add home-manager installation to build-script
-*** TODO add emacs-config distribution
-*** TODO make polybar use powerline-font features
-*** TODO improve on pinning mechanism, use niv?
-*** TODO add org-capture bindings to XMonad
-*** TODO add kmonad to home-manager
+- add laptop config
+- add encrypted passwords, maybe use git-crypt?
+- add home-manager installation to build-script
+- add emacs-config distribution
+- make polybar use powerline-font features
+- improve on pinning mechanism, use niv?
+- add org-capture bindings to XMonad
+- add kmonad to home-manager
