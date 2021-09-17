@@ -10,6 +10,7 @@ let
     cachix          # nix caching
     dmenu           # application launcher
     duf             # disk usage/free utility
+    evtest          # gather info on input events
     fd              # `find` but only for files
     gimp            # gnu image manipulation program
     killall         # kill programs by name
@@ -107,6 +108,7 @@ in
     sessionPath = [
       "/home/david/dcs/syscfg/bin" # My own sys-cfg redo scripts
       "/home/david/.emacs.d/bin"   # doom-emacs scripts
+      "/home/david/.local/bin"     # For if I really need a quick and dirty stateful solution
     ];
   };
 

@@ -65,6 +65,13 @@ function build_home -S
     # HACK: There must be a nixier way of doing this
     echo ". Write theme setting to emacs"
     echo "(setq doom-theme $themename)" > $HOME/.config/doom/my/theme.el
+
+    # HACK: msmtp pass command doesn't use custom directory
+    # FIXME: When I merge passwords into syscfg, these should be better.
+    echo ". Deploying some links"
+    unlink $H/.password-store > /dev/null 2>&1
+    ln -s $H/dcs/secrets/passwords $H/.password-store
+
 end
 
 switch $argv[1]

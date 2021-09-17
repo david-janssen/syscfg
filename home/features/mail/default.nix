@@ -24,7 +24,7 @@ in
   accounts.email.accounts."gmail" = {
     primary = true;
     flavor  = "gmail.com";
-    passwordCommand = "pass mail/gmail";
+    passwordCommand = "pass web/gmail";
     maildir.path = "gmail";
 
     address = "janssen.dhj@gmail.com";
