@@ -20,7 +20,10 @@ keyMap cfg =
     $  [
     -- Application launchers
          ("M-a"                      , spawn cmdEditor)
+       , ("M-S-a"                    , spawn "emacs")  -- The non-client version
+       , ("M-h"                      , spawn "org-capture")
        , ("M-r"                      , spawn cmdBrowser)
+       , ("M-C-r"                    , scratch "browse")
        , ("M-s"                      , spawn cmdTerm)
        , ("M-t"                      , spawn cmdLauncher)
        , ("M-<Tab>"                  , spawn "rofi-pass")
@@ -44,8 +47,12 @@ keyMap cfg =
        , ("M-b"                      , sendMessage NextLayout)
 
     -- Named scratchpads
-       , ("M-o"                      , scratch "term")
-       , ("M-S-o"                    , scratch "kmonad")
+       , ("M-o"                      , scratch "cterm")
+       , ("M-C-n"                    , scratch "lterm")
+       , ("M-C-,"                    , scratch "bterm")
+       , ("M-C-i"                    , scratch "rterm")
+       , ("M-C-u"                    , scratch "tterm")
+       , ("M-C-j"                    , scratch "kmonad")
 
 
     -- Working with a secondary monitor
