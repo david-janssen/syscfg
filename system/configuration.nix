@@ -5,7 +5,10 @@ let
 in
 
 {
-  imports = [ this.syscfg ];
+  imports = [
+    this.syscfg
+    ./features/steam.nix
+  ];
 
   # Run networking through network-manager
   networking = {

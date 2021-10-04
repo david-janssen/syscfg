@@ -8,6 +8,7 @@ import           XMonad.Hooks.ManageDocks       ( avoidStruts
                                                 , docks
                                                 )
 import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.ResizableTile
 import           XMonad.Layout.Spacing
@@ -48,7 +49,7 @@ djConfig = do
              }
 
 main :: IO ()
-main = djConfig >>= \cfg -> xmonad $ docks $ cfg
+main = djConfig >>= \cfg -> xmonad . ewmh $ docks $ cfg
 
 djLayout = tiled ||| spaced tiled ||| noBorders Full
  where
@@ -57,4 +58,8 @@ djLayout = tiled ||| spaced tiled ||| noBorders Full
   b x = (Border x x x x)
 
 djManageHook =
-  composeAll [isDialog --> doCenterFloat, dockManage, scratchManage]
+  composeAll [ isDialog --> doCenterFloat
+             , dockManage
+             , scratchManage
+             , appName =? "Steam" --> doFloat
+             ]
