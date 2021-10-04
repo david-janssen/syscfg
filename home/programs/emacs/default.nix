@@ -1,14 +1,19 @@
 { config, lib, pkgs, ... }:
 
-  # services.emacs.package =;
-
-
-  # environment.defaultPackages = with pkgs; [
-  #   emacsGit
-  # ];
-
-
+let
+  extraPkgs = p: [
+    # Required for vterm
+    p.vterm
+  ];
+in
 {
+  # Extra packages for the system
+  home.packages = with pkgs; [
+    # For use with emacs-everywhere
+    xdotool
+    xorg.xwininfo
+  ];
+
   # Emacs-overlay to access emacs28
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
@@ -20,7 +25,7 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacsGit;
-    extraPackages = p: [ p.vterm ];
+    extraPackages = extraPkgs;
     # extraConfig = "(defvar testyboop 3)"; Not yet supported in 21.05
   };
 
