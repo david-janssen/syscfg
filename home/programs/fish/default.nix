@@ -66,15 +66,22 @@ in
       any-nix-shell fish --info-right | source
     '';
     shellAliases = {
-      ar   = "autorandr -c";
-      cat  = "bat";
-      du   = "ncdu --color dark -rr -x";
-      ".." = "cd ..";
-      ping = "prettyping";
+      ar     = "autorandr -c";
+      cat    = "bat";
+      du     = "ncdu --color dark -rr -x";
+      ".."   = "cd ..";
+      ping   = "prettyping";
+      mkhome = "mksys home";
+      # HACK: At some point I should integrate kmonad into nixpkgs and
+      # home-manager, but first we make it work.
+      kma    = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
     };
     shellInit = fishConfig;
     functions = {
       fish_greeting = "";
+
+
+
     };
   };
 }
