@@ -21,7 +21,6 @@ to update the color-themes and wallpaper for nearly all the apps that I use.
 Only alacritty needs to be manually restarted.
 
 ** Todos
-- add laptop config
 - add encrypted passwords, maybe use git-crypt?
 - add home-manager installation to build-script
 - add emacs-config distribution
