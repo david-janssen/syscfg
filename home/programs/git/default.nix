@@ -2,13 +2,16 @@
 
 let
   gitConfig = {
-    core = {
-      editor = "emacs";
-    };
+    core.editor = "emacs";
     pull.rebase = false;
     url = {
       "https://github.com/".insteadOf = "gh:";
+      "https://github.com/kmonad/kmonad".insteadOf = "km:";
     };
+
+    user.signingKey = "A09D71C32FA183F041565824C8464502A0DCC5F2!";
+    commit.gpgSign = true;
+    credential.helper = "store";
   };
 in
 {
