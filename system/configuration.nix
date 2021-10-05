@@ -7,7 +7,7 @@ in
 {
   imports = [
     this.syscfg
-  ];
+  ] ++ (if this.isLaptop then [./features/laptop.nix] else []);
 
   # Run networking through network-manager
   networking = {

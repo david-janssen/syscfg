@@ -7,6 +7,8 @@ let
     url = {
       "https://github.com/".insteadOf = "gh:";
       "https://github.com/kmonad/kmonad".insteadOf = "km:";
+      "https://github.com/david-janssen/syscfg".insteadOf = "sys:";
+      "https://github.com/david-janssen/doomcfg".insteadOf = "doom:";
     };
 
     user.signingKey = "A09D71C32FA183F041565824C8464502A0DCC5F2!";
