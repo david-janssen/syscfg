@@ -20,6 +20,12 @@ configuration links to a particular theme. Rebuilding with ~mksys home~ manages
 to update the color-themes and wallpaper for nearly all the apps that I use.
 Only alacritty needs to be manually restarted.
 
+** How it works
+When you call `mksys` we use the `hostname` command to figure out what system we
+are on. Then we copy files over from this project to `/etc/nixos` for the
+systemwide configuration, and/or `~/.config/nixpkgs` for the home-configuration.
+Then we use `nixos-rebuild` and `home-manager` to update the system-state.
+
 ** Todos
 - add encrypted passwords, maybe use git-crypt?
 - add home-manager installation to build-script

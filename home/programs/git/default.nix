@@ -6,6 +6,7 @@ let
     pull.rebase = false;
     url = {
       "https://github.com/".insteadOf = "gh:";
+      "https://github.com/david-janssen/".insteadOf = "dj:";
       "https://github.com/kmonad/kmonad".insteadOf = "km:";
       "https://github.com/david-janssen/syscfg".insteadOf = "sys:";
       "https://github.com/david-janssen/doomcfg".insteadOf = "doom:";
