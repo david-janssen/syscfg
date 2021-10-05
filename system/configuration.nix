@@ -7,7 +7,6 @@ in
 {
   imports = [
     this.syscfg
-    ./features/steam.nix
   ];
 
   # Run networking through network-manager

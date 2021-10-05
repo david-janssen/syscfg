@@ -1,6 +1,7 @@
 {
   imports = [ ./hardware-configuration.nix
               ../../features/virtualisation.nix
+              ../../features/steam.nix
               ../../wm/xmonad.nix
             ];
 
