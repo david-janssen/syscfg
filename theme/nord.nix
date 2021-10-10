@@ -45,5 +45,5 @@ rec {
   emacs-theme = "doom-nord";
 
   # Matching wallpaper
-  wallpaper    = ./wallpaper/cold.png;
+  wallpaper    = ../assets/wallpaper/cold.png;
 }

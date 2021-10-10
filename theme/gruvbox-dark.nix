@@ -47,5 +47,5 @@ rec {
   emacs-theme = "doom-gruvbox";
 
   # Matching wallpaper
-  wallpaper    = ./wallpaper/gruvbox_nixos.png;
+  wallpaper    = ../assets/wallpaper/gruvbox_nixos.png;
 }

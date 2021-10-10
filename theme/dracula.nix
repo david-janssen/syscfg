@@ -45,5 +45,5 @@ rec {
   emacs-theme = "doom-dracula";
 
   # Matching wallpaper
-  wallpaper    = ./wallpaper/green_mountains.png;
+  wallpaper    = ../assets/wallpaper/green_mountains.png;
 }

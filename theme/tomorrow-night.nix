@@ -45,5 +45,5 @@ rec {
   emacs-theme = "doom-tomorrow-night";
 
   # Matching wallpaper
-  wallpaper   = ./wallpaper/sailing.png;
+  wallpaper   = ../assets/wallpaper/sailing.png;
 }
