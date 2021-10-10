@@ -9,6 +9,9 @@ in
 {
   # Extra packages for the system
   home.packages = with pkgs; [
+    # Spell-checking with doom's spell-check module
+    (aspellWithDicts (ds: with ds; [ en nl es ]))
+
     # For use with emacs-everywhere
     xdotool
     xorg.xwininfo

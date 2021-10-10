@@ -6,6 +6,7 @@ let
 
   defaultPkgs = with pkgs; [
     any-nix-shell   # fish support for nix-shell
+    audacity        # edit sound files
     bat             # `cat` but better
     cachix          # nix caching
     dmenu           # application launcher
@@ -35,6 +36,7 @@ let
     stow            # deploy dirs as symlinks
     tldr            # man-page summary generator
     tree            # tree-view of fs
+    unzip           # because people use zip-files
     vlc             # great video player
     xclip           # clipboard utility
     xorg.xev        # event-discovery utility
@@ -106,7 +108,7 @@ in
     };
 
     sessionPath = [
-      "/home/david/dcs/syscfg/bin" # My own sys-cfg redo scripts
+      "/home/david/prj/syscfg/bin" # My own sys-cfg redo scripts
       "/home/david/.emacs.d/bin"   # doom-emacs scripts
       "/home/david/.local/bin"     # For if I really need a quick and dirty stateful solution
     ];
