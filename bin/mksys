@@ -1,12 +1,13 @@
 #!/usr/bin/env fish
 
 # Parse args:
-# -c or --clean: purge destination folders before copy
-argparse 'c/clean' -- $argv
+# -p or --purge: purge destination folders before copy
+argparse 'p/purge' -- $argv
 
 set R (dirname (dirname (status -f))) # Rootdir for `syscfg` project
 set T ./machines/(hostname)/this.nix  # Config for this specific machine
-set H $HOME
+set H $HOME/.config/nixpkgs              # Home-manager's configuration directory
+
 
 function theme_get -S
     nix eval -f $R/$T theme.$argv[1]
@@ -15,17 +16,16 @@ end
 function build_sys -S
     echo "Updating system configuration"
 
-    if set -q _flag_c
+    if set -q _flag_p
         echo ". Purging /etc/nixos"
         sudo rm -r /etc/nixos/*
     end
 
     echo ". Copying config to /etc/nixos"
     sudo mkdir -p /etc/nixos/machine/current
-    sudo mkdir -p /etc/nixos/theme
-    sudo cp -r $R/machines/(hostname)/* /etc/nixos/machine/current/
-    sudo cp -r $R/theme/*               /etc/nixos/theme/
     sudo cp -r $R/system/*              /etc/nixos
+    sudo cp -r $R/machines/(hostname)/* /etc/nixos/machine/current/
+    sudo cp -r -t /etc/nixos $R/theme $R/assets
 
     echo ". Rebuilding system"
     sudo nixos-rebuild -I nixpkgs=(cat $R/pinned/nixpkgs) "switch" --upgrade --show-trace \
@@ -36,22 +36,21 @@ function build_home -S
     echo "Updating home configuration"
 
     echo ". Creating cache state"
-    mkdir -p $H/.config/polybar/logs       # Polybar logs
-    touch $H/.config/polybar/logs/main.log
-    mkdir -p $H/dcs/mail                   # Maildir
+    mkdir -p $HOME/.config/polybar/logs       # Polybar logs
+    touch $HOME/.config/polybar/logs/main.log
+    mkdir -p $HOME/dcs/mail                   # Maildir
 
-    if set -q _flag_c
+    if set -q _flag_p
         echo ". Purging ~/.config/nixpkgs"
-        rm -r $H/.config/nixpkgs/*
+        rm -r $H/*
     end
 
     # Home manager files
     echo ". Copying home-manager config"
-    mkdir -p $H/.config/nixpkgs/machine/current
-    mkdir -p $H/.config/nixpkgs/theme
-    cp -r $R/machines/(hostname)/* $H/.config/nixpkgs/machine/current
-    cp -r $R/theme/*               $H/.config/nixpkgs/theme/
-    cp -r $R/home/*                $H/.config/nixpkgs/
+    mkdir -p $H/machine/current
+    cp -r $R/home/*                $H/
+    cp -r $R/machines/(hostname)/* $H/machine/current
+    cp -r -t $H $R/theme $R/assets
 
     echo ". Running home-manager switch"
     home-manager "switch" --show-trace 2>&1 | sed 's/^/.   /'
