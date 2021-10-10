@@ -4,22 +4,21 @@ let
 
   this = import ./machine/current/this.nix;
 
+  # Packages that are useful but are not:
+  # - Defined in the system configuration
+  # - Defined by some 'program' setting in home-manager
   defaultPkgs = with pkgs; [
     any-nix-shell   # fish support for nix-shell
-    audacity        # edit sound files
     bat             # `cat` but better
     cachix          # nix caching
     dmenu           # application launcher
     duf             # disk usage/free utility
     evtest          # gather info on input events
     fd              # `find` but only for files
-    gimp            # gnu image manipulation program
     killall         # kill programs by name
-    libreoffice     # office suite
-    libnotify       # provides `notify-send`
+    libnotify       # send notification messages
     manix           # more nix documentation
     multilockscreen # screen-locker util
-    gnome.nautilus  # file-manager
     mu              # email-indexer and emacs client
     ncdu            # a much prettier `du`
     neofetch        # command-line sys-info
@@ -27,7 +26,6 @@ let
     nix-doc         # search nix documentation
     nix-index       # search nix-pkgs
     nixfmt          # auto-format nix syntax
-    pavucontrol     # audio-controller for pulseaudio
     paprefs         # pulseaudio preferences
     pasystray       # pulseaudio systray app
     prettyping      # ping but pretty
@@ -36,16 +34,11 @@ let
     stow            # deploy dirs as symlinks
     tldr            # man-page summary generator
     tree            # tree-view of fs
-    unzip           # because people use zip-files
-    vlc             # great video player
+    vlc             # a great media player
     xclip           # clipboard utility
     xorg.xev        # event-discovery utility
-    xorg.xrandr     # manage displays
+    youtube-dl      # grabbing media from youtube
     zathura         # a great pdf-viewer
-    zoom-us         # to engage with normies
-
-    # Trying stuff
-    freetube
   ];
 
 in
@@ -69,7 +62,9 @@ in
     ./features/mail
     ./features/dev/c.nix
     ./features/dev/haskell.nix
-  ];
+  ] ++ (if this.isLaptop
+        then [ (import ./features/laptop { inherit stdenv pkgs this; }) ]
+        else []);
 
   gtk = {
     enable = true;

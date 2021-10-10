@@ -55,6 +55,16 @@ in
           disown
         '';
       };
+      nix-def = {
+        description = "Open a nix-shell for a local package";
+        body = ''
+          if not set -q argv[1]
+              set argv[1] ./default.nix
+          end
+
+          nix-shell -E "with import <nixpkgs> {}; callPackage $argv[1] {}"
+        '';
+      };
     };
   };
 }

@@ -88,6 +88,7 @@ in
         battery = "BAT0";
         adapter = "ACAD";
         poll.interval = 5;
+        full-at = 97;
         time-format = "%H%M";
 
         label.charging = "%percentage%:%time%";
