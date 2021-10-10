@@ -108,7 +108,7 @@ in
     };
 
     sessionPath = [
-      "/home/david/prj/syscfg/bin" # My own sys-cfg redo scripts
+      (builtins.toString ../bin)
       "/home/david/.emacs.d/bin"   # doom-emacs scripts
       "/home/david/.local/bin"     # For if I really need a quick and dirty stateful solution
     ];

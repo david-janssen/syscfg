@@ -12,6 +12,11 @@ let
     };
 
   themeInit = import ./theme.nix { inherit this config pkgs; };
+
+  extraInit = ''
+    set -p fish_function_path ${builtins.toString ./functions}
+
+  '';
 in
 
 {
@@ -34,12 +39,21 @@ in
       # home-manager, but first we make it work.
       kma    = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
     };
-    shellInit = themeInit;
+    shellInit = themeInit + extraInit;
     functions = {
       fish_greeting = "";
       pc = {
         wraps = "pass -c";
         body = "pass -c $argv[1]";
+      };
+      reload = "source ~/.config/fish/config.fish";
+      book = {
+        description = "Open a book from documents and disown zathura";
+        body = ''
+          find ~/dcs/books -type f | fzf > /tmp/book_file
+          cat /tmp/book_file | xargs -I % nohup zathura % > /dev/null 2>&1 &
+          disown
+        '';
       };
     };
   };
