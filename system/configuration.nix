@@ -7,7 +7,7 @@ in
 {
   imports = [
     this.syscfg
-  ] ++ (if this.isLaptop then [./features/laptop.nix] else []);
+  ] ++ (if this.isLaptop then [./features/laptop] else []);
 
   # Run networking through network-manager
   networking = {
@@ -23,10 +23,23 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone      = "Europe/Amsterdam";
 
+  # Packages that either:
+  # - Are required for any of the system-level services I've setup
+  # - Might one day be useful to Pili
   environment.systemPackages = with pkgs; [
-    gitFull
-    vim
-    wget
+    audacity        # edit sound files
+    freetube        # youtube without the manipulation
+    gimp            # gnu image manipulation program
+    gitFull         # how would we exist without it?
+    gnome.nautilus  # file-manager
+    libreoffice     # office suite
+    pavucontrol     # audio-controller for pulseaudio
+    unzip           # because people use zip-files
+    vim             # because sometimes you wan't to be quick
+    vlc             # my favorite media player
+    wget            # pull stuff from the internet
+    xorg.xrandr     # manage displays
+    zoom-us         # to engage with normies
   ];
 
   # Load a bunch of fonts

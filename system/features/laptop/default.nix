@@ -2,11 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
-    light # Manage the backlight
+    light  # Manage the backlight
   ];
 
   services = {
-    # Battery monitoring
+    # System battery monitor
     upower = {
       enable = true;
       percentageLow = 20;
