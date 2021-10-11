@@ -29,6 +29,7 @@ in
       "*.direnv"
       "*.envrc"
       "*hie.yaml"
+      "/notes.org"
     ];
     userEmail = "janssen.dhj@gmail.com";
     userName  = "David Janssen";
