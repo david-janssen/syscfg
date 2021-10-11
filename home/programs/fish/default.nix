@@ -28,16 +28,19 @@ in
       any-nix-shell fish --info-right | source
     '';
     shellAliases = {
-      ar     = "autorandr -c";
-      cat    = "bat";
-      du     = "ncdu --color dark -rr -x";
-      ".."   = "cd ..";
-      ping   = "prettyping";
-      mkhome = "mksys home";
-      pp     = "cd (git rev-parse --show-toplevel)";
+      ar      = "autorandr -c";
+      cat     = "bat";
+      du      = "ncdu --color dark -rr -x";
+      ".."    = "cd ..";
+      ping    = "prettyping";
+      mkhome  = "mksys home";
+      pp      = "cd (git rev-parse --show-toplevel)";
       # HACK: At some point I should integrate kmonad into nixpkgs and
       # home-manager, but first we make it work.
-      kma    = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
+      kma     = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
+      encrypt = "gpg --encrypt -r janssen.dhj@gmail.com";
+      decrypt = "gpg --decrypt";
+
     };
     shellInit = themeInit + extraInit;
     functions = {
