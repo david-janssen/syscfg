@@ -7,6 +7,7 @@ let
     core.editor = "emacs";
     credential.helper = "store";
     init.defaultBranch = "master";
+    github.user = "david-janssen";
     pull.rebase = false;
     url = {
       "https://github.com/".insteadOf = "gh:";
