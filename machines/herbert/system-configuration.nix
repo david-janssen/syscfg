@@ -17,7 +17,7 @@
   services.xserver = {
     videoDrivers = [ "nvidia" ];
     useGlamor    = true;
-    displayManager.defaultSession = "none+xmonad";
+    # displayManager.defaultSession = "none+xmonad";
   };
 
   hardware ={

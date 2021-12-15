@@ -5,7 +5,8 @@ type Cmd = String
 
 
 cmdEditor, cmdLauncher, cmdBrowser, cmdTerm :: Cmd
-cmdEditor   = "emacsclient -c"
+-- cmdEditor   = "emacsclient -c"
+cmdEditor   = "emacs"
 cmdLauncher = "rofi -modi drun,ssh,window -show drun -show-icons -monitor primary"
 cmdBrowser  = "chromium"
 cmdTerm     = "alacritty"

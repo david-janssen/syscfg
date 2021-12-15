@@ -32,9 +32,9 @@
         word_wrap            = true;
       };
       shortcuts = {
-        close     = "mod4+ctrl+n";
+        close     = "mod4+ctrl+h";
         close_all = "mod4+ctrl+o";
-        history   = "mod4+ctrl+e";
+        # history   = "mod4+ctrl+e";
         context   = "mod4+ctrl+i";
       };
       urgency_low = {

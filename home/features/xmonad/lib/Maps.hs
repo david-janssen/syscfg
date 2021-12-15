@@ -52,6 +52,7 @@ keyMap cfg =
        , ("M-C-,"                    , scratch "bterm")
        , ("M-C-i"                    , scratch "rterm")
        , ("M-C-u"                    , scratch "tterm")
+       , ("M-C-e"                    , scratch "fterm")
        , ("M-C-j"                    , scratch "kmonad")
 
 

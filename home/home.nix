@@ -34,11 +34,14 @@ let
     stow            # deploy dirs as symlinks
     tldr            # man-page summary generator
     tree            # tree-view of fs
+    udiskie         # control udiskie daemon from prompt
     vlc             # a great media player
     xclip           # clipboard utility
     xorg.xev        # event-discovery utility
     youtube-dl      # grabbing media from youtube
     zathura         # a great pdf-viewer
+
+    python39Packages.ipython # python repl, but nice
   ];
 
 in
@@ -103,7 +106,7 @@ in
     };
 
     sessionPath = [
-      (builtins.toString ../bin)
+      "/home/david/prj/syscfg/bin" # where the `mksys` script lives
       "/home/david/.emacs.d/bin"   # doom-emacs scripts
       "/home/david/.local/bin"     # For if I really need a quick and dirty stateful solution
     ];
@@ -148,7 +151,7 @@ in
     # a nicer `ls`
     exa = {
       enable = true;
-      enableAliases = true;
+      enableAliases = false;
     };
 
     feh.enable = true;

@@ -31,9 +31,9 @@ in
 
     profiles = rec {
 
-      "default" = office;
+      "default" = desk;
 
-      "office" = {
+      "desk" = {
         fingerprint = fp;
         config = {
           DP-1   = dp1;
@@ -51,7 +51,7 @@ in
         hooks.postswitch = "systemctl --user start gammastep.service";
       };
 
-      "cinema" = {
+      "floor" = {
         fingerprint = fp;
         config = {
           DP-1   = dp1 // { primary = true; };
@@ -60,7 +60,7 @@ in
         hooks.postswitch = "systemctl --user start gammastep.service";
       };
 
-      "night" = {
+      "dark-floor" = {
         fingerprint = fp;
 
         config = {

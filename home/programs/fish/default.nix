@@ -35,11 +35,20 @@ in
       ping    = "prettyping";
       mkhome  = "mksys home";
       pp      = "cd (git rev-parse --show-toplevel)";
-      # HACK: At some point I should integrate kmonad into nixpkgs and
-      # home-manager, but first we make it work.
-      kma     = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
+
       encrypt = "gpg --encrypt -r janssen.dhj@gmail.com";
       decrypt = "gpg --decrypt";
+
+      # HACK: At some point I should integrate kmonad into nixpkgs and
+      # home-manager, but first we make it work.
+      #
+      kma     = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
+
+      # Make standard ls command use exa
+      ls = "${pkgs.exa}/bin/exa --group-directories-first";
+      lt = "${pkgs.exa}/bin/exa --group-directories-first --tree";
+      la = "${pkgs.exa}/bin/exa --group-directories-first -l";
+      ll = "${pkgs.exa}/bin/exa --group-directories-first -a";
 
     };
     shellInit = themeInit + extraInit;
