@@ -1,0 +1,12 @@
+#+title:
+
+* Dissatisfaction
+- The color for certain themes makes the active window hard to discern
+- The docks are very finicky, often not being recognized, polybar?
+- Better keybindings for 3-screen management
+  - Would really like a second button. Mod4/shift?
+  - I do not like the button on my '/' (QMK issue)
+
+
+* Possible improvements
+-

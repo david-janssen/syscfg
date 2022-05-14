@@ -15,6 +15,7 @@ let
     duf             # disk usage/free utility
     evtest          # gather info on input events
     fd              # `find` but only for files
+    imagemagick
     killall         # kill programs by name
     libnotify       # send notification messages
     manix           # more nix documentation
@@ -22,7 +23,6 @@ let
     mu              # email-indexer and emacs client
     ncdu            # a much prettier `du`
     neofetch        # command-line sys-info
-    niv             # Package management for Nix projects
     nix-doc         # search nix documentation
     nix-index       # search nix-pkgs
     nixfmt          # auto-format nix syntax

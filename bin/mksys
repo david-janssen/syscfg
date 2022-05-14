@@ -76,8 +76,8 @@ end
 switch $argv[1]
     case home
         build_home
-    case sys
-        build_sys
-    case '*'
+    case
         build_sys; and build_home
+    case '*'
+        build_sys #; and build_home
 end

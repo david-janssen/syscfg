@@ -13,16 +13,14 @@ in
     (aspellWithDicts (ds: with ds; [ en nl es ]))
 
     # For use with emacs-everywhere
-    xdotool
-    xorg.xwininfo
+    # xdotool
+    # xorg.xwininfo
   ];
 
   # Emacs-overlay to access emacs28
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      # url = https://github.com/nix-community/emacs-overlay/archive/de00abcd9631b104ef2868e1e0a877b1ec6b5633.tar.gz;
-     url = https://github.com/nix-community/emacs-overlay/archive/76c0ca6786e5c7e12d1608f502641c1b5307330e.tar.gz;
-     # url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+     url = https://github.com/nix-community/emacs-overlay/archive/2264d27fe9048a982411fda879ed638119f5cbbc.tar.gz;
     }))
   ];
 

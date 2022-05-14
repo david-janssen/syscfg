@@ -23,7 +23,7 @@ in
   programs.fish = {
     enable = true;
     plugins = [ theme-plugin ];
-    promptInit = ''
+    interactiveShellInit = ''
       eval (direnv hook fish)
       any-nix-shell fish --info-right | source
     '';

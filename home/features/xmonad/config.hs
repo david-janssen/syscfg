@@ -46,6 +46,7 @@ djConfig = do
              , logHook            = plLog
              , manageHook         = djManageHook
              , startupHook        = def
+             , handleEventHook    = handleEventHook def -- <+> fullscreenEventHook
              }
 
 main :: IO ()
