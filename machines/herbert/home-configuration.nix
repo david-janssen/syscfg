@@ -1,6 +1,6 @@
 {
   imports = [
-    ./home/autorandr.nix
+    ./home/monitors.nix
     ../../features/dev/haskell.nix
   ];
 
