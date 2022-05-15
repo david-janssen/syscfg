@@ -9,8 +9,8 @@ let
 in
 {
   programs.fish.shellAliases = {
-    ar-desk   = dsk;
-    ar-focus  = fcs;
-    ar-cinema = cin;
+    desk-view   = dsk;
+    focus-view  = fcs;
+    cinema-view = cin;
   };
 }
