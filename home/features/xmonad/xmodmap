@@ -1,0 +1,24 @@
+! This xmodmap script unbinds a lot of functionality from the 'right' modifiers
+! and assigns these modifiers instead to the various numerical modifiers that
+! are normally unused but can be hooked into from XMonad.
+
+clear shift
+add shift   = Shift_L
+
+clear control
+add control = Control_L
+
+clear mod1
+add mod1 = Alt_L
+
+clear mod2
+add mod2 = Control_R
+
+clear mod3
+add mod3 = Alt_R
+
+clear mod4
+add mod4 = Super_L
+
+clear mod5
+add mod5 = Shift_R

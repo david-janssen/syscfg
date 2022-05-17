@@ -16,6 +16,7 @@ import           XMonad.Layout.Spacing
 import           Cmds                           ( cmdTerm )
 import           Maps                           ( keyMap
                                                 , mouseMap
+                                                , fixMods
                                                 )
 import           Polybar                        ( dockManage
                                                 , polyLog
@@ -45,7 +46,7 @@ djConfig = do
              , layoutHook         = djLayout
              , logHook            = plLog
              , manageHook         = djManageHook
-             , startupHook        = def
+             , startupHook        = fixMods
              , handleEventHook    = handleEventHook def -- <+> fullscreenEventHook
              }
 
@@ -64,3 +65,4 @@ djManageHook =
              , scratchManage
              , appName =? "Steam" --> doFloat
              ]
+

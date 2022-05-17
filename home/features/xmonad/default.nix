@@ -16,6 +16,7 @@ in
   home.packages = with pkgs; [
     networkmanager_dmenu    # networkmanager via dmenu
     networkmanagerapplet    # systray applet
+    xorg.xmodmap            # used to rejigger the modifier
   ];
 
   xresources.properties = {

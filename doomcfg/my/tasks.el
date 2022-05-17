@@ -28,6 +28,7 @@
    org-ellipsis         " ▼ "
    org-startup-folded   nil
    org-startup-indented t
+   org-tags-column      -80
 
    ;; TODOS --------------------------------------------------------------------
 
