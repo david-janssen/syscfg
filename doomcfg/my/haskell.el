@@ -33,5 +33,6 @@
    :map haskell-mode-map
    :nv "]e" #'flycheck-next-error
    :nv "[e" #'flycheck-previous-error
-   )
-  )
+   (:leader
+    :desc "repl-load-file" "mm" #'haskell-process-load-file
+   )))

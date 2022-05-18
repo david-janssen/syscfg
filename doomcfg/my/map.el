@@ -73,22 +73,12 @@
 
 ;; Setup a keymap
 (map!
- :leader
- "n" nil
+ :leader "n" nil
 
- :prefix "n"
- ;; ;; Take over the "n" prefix
- ;; (:leader
- ;;  "n" nil
- ;;  :prefix "n"
- ;;  :desc "word->headline" "a" #'k-headline
- ;;  )
-
- ;; ;; Bind some C-keys
- ;; (:map note-mode-map
- ;;  "C-h" #'k-prefix)
- )
-
+ (:leader
+  :desc "david" :prefix "n"
+  :desc "draw-line" :nv "n" #'dj-draw-line
+  ))
 
 (map!
  (:after company (:map company-active-map

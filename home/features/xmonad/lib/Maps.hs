@@ -32,9 +32,7 @@ keyMap cfg =
   mkKeymap cfg
     $  [
     -- Application launchers
-         ("M-a"                      , spawn cmdEditor)
-       , ("M-S-a"                    , spawn "emacs")  -- The non-client version
-       , ("M-h"                      , spawn "org-capture")
+         ("M-h"                      , spawn cmdEditor)
        , ("M-r"                      , spawn cmdBrowser)
        , ("M-C-r"                    , scratch "browse")
        , ("M-s"                      , spawn cmdTerm)

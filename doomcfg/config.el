@@ -70,7 +70,6 @@
   (let ((ll (save-excursion (end-of-line) (current-column))))
     (insert-char ?- (- 80 ll))))
 
-(map! :map global-map :niv "C-o" #'dj-draw-line)
 
 
 
