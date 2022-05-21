@@ -8,6 +8,7 @@ let
   # - Defined in the system configuration
   # - Defined by some 'program' setting in home-manager
   defaultPkgs = with pkgs; [
+    anki
     any-nix-shell   # fish support for nix-shell
     bat             # `cat` but better
     cachix          # nix caching

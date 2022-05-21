@@ -22,3 +22,8 @@ add mod4 = Super_L
 
 clear mod5
 add mod5 = Shift_R
+
+! Keycode 134 corresponds to right-meta in my X11 (they call it Super_R).
+! Setting Multi_key to this keycode causes it to be recognized as a compose key
+! for X11 compose sequences.
+keycode 134 = Multi_key

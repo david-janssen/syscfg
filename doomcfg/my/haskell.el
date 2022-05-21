@@ -28,11 +28,17 @@
 
   (setq lsp-haskell-plugin-import-lens-code-lens-on nil)
 
+  (defun haskell-process-clear-and-process ()
+    (interactive)
+    (haskell-interactive-mode-clear)
+    (haskell-process-load-file))
+
   ;; Customize haskell keybindings ---------------------------------------------
   (map!
    :map haskell-mode-map
    :nv "]e" #'flycheck-next-error
    :nv "[e" #'flycheck-previous-error
    (:leader
-    :desc "repl-load-file" "mm" #'haskell-process-load-file
+    :desc "repl-load-file" "mm" #'haskell-process-clear-and-process
+    :desc "repl-clear"     "md" #'haskell-interactive-mode-clear
    )))

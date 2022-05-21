@@ -41,7 +41,8 @@ in
       # HACK: At some point I should integrate kmonad into nixpkgs and
       # home-manager, but first we make it work.
       #
-      kma     = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
+      kma = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
+      xmd = "xmodmap ~/.config/nixpkgs/assets/xmodmap";
 
       # Make standard ls command use exa
       ls = "${pkgs.exa}/bin/exa --group-directories-first";
