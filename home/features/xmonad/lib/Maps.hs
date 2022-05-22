@@ -6,6 +6,7 @@ import           XMonad.Actions.CycleWS         ( nextScreen
                                                 )
 import           XMonad.Actions.PhysicalScreens
 import           XMonad.Actions.OnScreen
+import           XMonad.Hooks.ManageDocks       ( ToggleStruts(..) )
 import           XMonad.Layout.ResizableTile    ( MirrorResize(..) )
 import           XMonad.Util.EZConfig           ( mkKeymap )
 
@@ -51,24 +52,15 @@ keyMap cfg =
        , ("M-S-p"                    , windows W.swapDown)
        , ("M-g"                      , windows W.focusMaster)
        , ("M-S-g"                    , windows W.swapMaster)
-       , ("M-v"                      , showBar)
-       , ("M-S-v"                    , hideBar)
+       , ("M-v"                      , sendMessage ToggleStruts)
 
     -- Layout management
        , ("M-b"                      , sendMessage NextLayout)
 
     -- Named scratchpads
        , ("M-k"                      , fixMods)
-       , ("M4-o"                      , scratch "cterm")
-       , ("M4-C-o"                    , scratch "lterm")
-       , ("M2-o"                     , scratch "rterm")
-       , ("M3-o"                     , scratch "bterm")
-       , ("M5-o"                     , scratch "tterm")
-
-       -- , ("M-C-u"                    , scratch "tterm")
-       -- , ("M-C-e"                    , scratch "fterm")
-       -- , ("M-C-j"                    , scratch "kmonad")
-
+       , ("M-o"                      , scratch "cterm")
+       , ("M-j"                      , scratch "kmonad")
 
     -- Working with a secondary monitor
        -- , ("M-z"                      , nextScreen)

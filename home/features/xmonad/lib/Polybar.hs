@@ -2,8 +2,6 @@
 
 module Polybar
   ( polyLog
-  , showBar
-  , hideBar
   , dockManage
   ) where
 
@@ -62,15 +60,6 @@ polyLog :: Theme -> IO (X ())
 polyLog t = do
   d <- dbusInit
   pure $ dynamicLogWithPP (dbusHook t d)
-
--- | Actions to show and hide the bar
-showBar, hideBar :: X ()
-showBar = do
-  spawn "polybar-msg cmd show"
-  sendMessage $ SetStruts [minBound .. maxBound] []
-hideBar = do
-  spawn "polybar-msg cmd hide"
-  sendMessage $ SetStruts [] [minBound .. maxBound]
 
 dockManage :: ManageHook
 dockManage = manageDocks

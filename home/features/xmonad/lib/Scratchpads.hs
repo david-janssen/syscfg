@@ -35,7 +35,7 @@ scratchpads =
   , NS "fterm"  (cmdTerm ++ " -t fterm") (title =? "fterm") fF
 
     -- A term specifically for running kmonad
-  , NS "kmonad" (cmdTerm ++ "  -t kmonad") (title =? "kmonad") cF
+  , NS "kmonad" (cmdTerm ++ "  -t kmonad") (title =? "kmonad") rF
   ]
 
 scratch :: String -> X ()

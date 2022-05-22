@@ -69,6 +69,8 @@ in
         };
 
         enable.ipc = true; # Required to enable `polybar-msg`
+        wm-restack = "generic";
+        override-redirect = true;
 
         tray = {
           position = "right";
