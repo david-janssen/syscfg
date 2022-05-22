@@ -29,6 +29,8 @@
 
   auth-sources '("~/.authinfo.gpg")
 
+  confirm-kill-emacs nil
+
   )
 (setf (alist-get ?- +ligatures-composition-alist)
   (regexp-opt '("-->" "--->" "->-" "-<" "-<-" "-<<" "->" "->>" "-}" "-~" "-:" "-|")))
