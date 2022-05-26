@@ -89,6 +89,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   nix = {
+    package = pkgs.nixFlakes;
     # Automate `nix-store --optimise`
     autoOptimiseStore = true;
 
@@ -103,6 +104,7 @@ in
     extraOptions = ''
       keep-outputs     = true
       keep-derivations = true
+      experimental-features = nix-command flakes
     '';
 
     trustedUsers = [ "root" "david" ];

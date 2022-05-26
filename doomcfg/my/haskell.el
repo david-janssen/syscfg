@@ -1,6 +1,9 @@
 ;;; ~/opt/dotfiles/dotfiles/.config/doom/+haskell.el -*- lexical-binding: t; -*-
 (after! haskell
 
+  (defalias 'haskell-align-record
+    (kmacro "v i { C-e : : <return> C-e - - <return> <esc>"))
+
   ;; Basic config -------------------------------------------------------------
 
   ;; We rely on lorri to make sure that ghci points to the right executable
@@ -41,4 +44,5 @@
    (:leader
     :desc "repl-load-file" "mm" #'haskell-process-clear-and-process
     :desc "repl-clear"     "md" #'haskell-interactive-mode-clear
+    :desc "align-record"   "mr" #'haskell-align-types
    )))

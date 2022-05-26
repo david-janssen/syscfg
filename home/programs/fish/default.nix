@@ -43,6 +43,7 @@ in
       #
       kma = "sudo kmonad ~/.config/kmonad/atreus.kbd -l debug";
       xmd = "xmodmap ~/.config/nixpkgs/assets/xmodmap";
+      sus = "systemctl suspend";
 
       # Make standard ls command use exa
       ls = "${pkgs.exa}/bin/exa --group-directories-first";
