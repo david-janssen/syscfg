@@ -2,6 +2,8 @@
 
 let
 
+  unstable = import <unstable> {};
+
   this = import ./machine/current/this.nix;
 
   # Packages that are useful but are not:
@@ -145,7 +147,7 @@ in
 
     direnv = {
       enable = true;
-      enableFishIntegration = true;
+      # enableFishIntegration = true;
       nix-direnv.enable = true;
     };
 

@@ -53,7 +53,7 @@ function build_home -S
     cp -r -t $H $R/theme $R/assets
 
     echo ". Running home-manager switch"
-    home-manager "switch" --show-trace 2>&1 | sed 's/^/.   /'
+    home-manager "switch" 2>&1 | sed 's/^/.   /'
 
     echo ". Forcing restarts"
     xmonad --restart
@@ -76,7 +76,7 @@ end
 switch $argv[1]
     case home
         build_home
-    case
+    case both
         build_sys; and build_home
     case '*'
         build_sys #; and build_home

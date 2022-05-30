@@ -27,14 +27,11 @@
   ;; Disable company-mode, more annoying than useful ---------------------------
   (add-hook 'haskell-mode-hook (lambda () (company-mode 0)))
 
-  ;; Make haskell-lsp less intrusive
-
-  (setq lsp-haskell-plugin-import-lens-code-lens-on nil)
-
-  (defun haskell-process-clear-and-process ()
-    (interactive)
-    (haskell-interactive-mode-clear)
-    (haskell-process-load-file))
+  ;; Configure LSP
+  (setq
+   lsp-haskell-plugin-import-lens-code-lens-on nil
+   lsp-headerline-breadcrumb-enable            t
+   )
 
   ;; Customize haskell keybindings ---------------------------------------------
   (map!
@@ -44,5 +41,8 @@
    (:leader
     :desc "repl-load-file" "mm" #'haskell-process-clear-and-process
     :desc "repl-clear"     "md" #'haskell-interactive-mode-clear
-    :desc "align-record"   "mr" #'haskell-align-types
-   )))
+    :desc "align-record"   "mr" #'haskell-align-record
+
+    :desc "lsp-ui-doc-show" "ld"          #'lsp-ui-doc-show
+    :desc "lsp-goto-type-definition" "lj" #'lsp-goto-type-definition
+    :desc "lsp-avy-lens"             "ll" #'lsp-avy-lens)))

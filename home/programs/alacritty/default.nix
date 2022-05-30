@@ -9,7 +9,6 @@ let theme = this.theme; in
 
     settings = {
 
-      background_opacity = 1;
 
       colors = {
         primary = {
@@ -34,6 +33,7 @@ let theme = this.theme; in
           x = 0;
           y = 0;
         };
+        opacity = 1;
       };
     };
   };

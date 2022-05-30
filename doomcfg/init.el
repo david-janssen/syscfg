@@ -77,7 +77,7 @@
 
  ;; Needs to be penultimate section
  :app
- calendar                         ; sync gcal and org-mode
+ ;; calendar                         ; sync gcal and org-mode
  everywhere                       ; *leave* Emacs!? You must be joking
 
  ;; Needs to be ultimate section
