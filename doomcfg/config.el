@@ -43,9 +43,8 @@
 ;; Configure company-times
 (after! company
   (setq company-idle-delay .1
-        company-echo-delay .1
+        company-echo-delay .5
         company-minimum-prefix-length 3))
-
 ;; Configure magit
 (after! magit
   ;; Hides closed topics
