@@ -26,6 +26,7 @@ viewOn s w = do
   case s' of
     Nothing -> pure ()
     Just s' -> windows $ onlyOnScreen s' w
+  ask >>= logHook.config -- Required for XMobar to update
 
 
 keyMap :: XConfig l -> M.Map (ButtonMask, KeySym) (X ())
