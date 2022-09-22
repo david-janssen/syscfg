@@ -42,7 +42,7 @@
 
 ;; Configure company-times
 (after! company
-  (setq company-idle-delay .1
+  (setq company-idle-delay nil
         company-echo-delay .5
         company-minimum-prefix-length 3))
 ;; Configure magit

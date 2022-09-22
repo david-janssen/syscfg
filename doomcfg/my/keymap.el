@@ -73,6 +73,6 @@
 
  ;; COMPANY --------------------------------------------------------------------
  :map company-active-map
- "RET"        nil
- "C-RET"      #'company-complete-selection
+ :nvi "RET"        #'ignore
+ :nvi "C-RET"      #'company-complete-selection
  )
