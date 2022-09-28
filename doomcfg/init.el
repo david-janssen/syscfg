@@ -30,8 +30,8 @@
  data                             ; config/data formats
  dhall                            ; Configs guaranteed to terminate
  emacs-lisp                       ; drown in parentheses
- (haskell +lsp)                ; a language that's lazier than I am
- ;; haskell                          ; LSP seems to make my laptop slllooooowwwww
+ ;; (haskell +lsp)                ; a language that's lazier than I am
+ haskell                          ; LSP seems to make my laptop slllooooowwwww
  json                             ; At least it ain't XML
  (markdown +grip)                 ; writing docs for people to ignore
  nix                              ; I hereby declare "nix geht mehr!"
@@ -51,7 +51,7 @@
  direnv                           ; use dir-dependent shell-envs
  (eval +overlay)                  ; run code, run (also, repls)
  lookup                           ; navigate your code and its documentation
- lsp                              ; M-x vscode
+ ;; lsp                              ; M-x vscode <- SLLLLLLLLLOOOOOOOOOOOWWWWWWWWWWWW
  (magit +forge)                   ; a git porcelain for Emacs
  pass                             ; password manager for nerds
  pdf                              ; pdf enhancements

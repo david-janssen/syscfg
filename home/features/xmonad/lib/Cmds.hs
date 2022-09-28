@@ -9,7 +9,10 @@ cmdEditor, cmdLauncher, cmdBrowser, cmdTerm :: Cmd
 cmdEditor   = "emacs"
 cmdLauncher = "rofi -modi drun,ssh,window -show drun -show-icons -monitor primary"
 cmdBrowser  = "chromium"
-cmdTerm     = "alacritty"
+--cmdTerm     = "alacritty"
+--cmdTerm = "terminator"
+cmdTerm = "kitty"
+-- cmdTerm = "urxvt"
 
 
 -- captureCmd = "emacsclient -nc -F " ++ traits ++ " --eval " ++ cmd ++ " &>/tmp/err"

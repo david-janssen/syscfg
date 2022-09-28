@@ -23,19 +23,19 @@ tF = customFloating $ W.RationalRect 0 0 1 h
 
 scratchpads =
   [ -- small center float
-    NS "cterm"  (cmdTerm ++ " -t cterm")  (title =? "cterm")  cF
+    NS "cterm"  (cmdTerm ++ " -T cterm")  (title =? "cterm")  cF
 
     -- 4 floating terms in the different screen-halves
-  , NS "lterm"  (cmdTerm ++ " -t lterm") (title =? "lterm")  lF
-  , NS "bterm"  (cmdTerm ++ " -t bterm") (title =? "bterm")  bF
-  , NS "rterm"  (cmdTerm ++ " -t rterm") (title =? "rterm")  rF
-  , NS "tterm"  (cmdTerm ++ " -t tterm") (title =? "tterm")  tF
+  , NS "lterm"  (cmdTerm ++ " -T lterm") (title =? "lterm")  lF
+  , NS "bterm"  (cmdTerm ++ " -T bterm") (title =? "bterm")  bF
+  , NS "rterm"  (cmdTerm ++ " -T rterm") (title =? "rterm")  rF
+  , NS "tterm"  (cmdTerm ++ " -T tterm") (title =? "tterm")  tF
 
     -- big fullscreen term
-  , NS "fterm"  (cmdTerm ++ " -t fterm") (title =? "fterm") fF
+  , NS "fterm"  (cmdTerm ++ " -T fterm") (title =? "fterm") fF
 
     -- A term specifically for running kmonad
-  , NS "kmonad" (cmdTerm ++ "  -t kmonad") (title =? "kmonad") rF
+  , NS "kmonad" (cmdTerm ++ "  -T kmonad") (title =? "kmonad") rF
   ]
 
 scratch :: String -> X ()

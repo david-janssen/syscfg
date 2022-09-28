@@ -24,10 +24,14 @@
   ;; Exclude all 'ih-' buffers from popup-management
   (set-popup-rule! "^\*ih-.*" :ignore t)
 
+  ;; Disable interactive error popups
+  (setq haskell-interactive-popup-errors nil)
+
   ;; Disable company-mode, more annoying than useful ---------------------------
   (add-hook 'haskell-mode-hook (lambda () (company-mode 0)))
 
   ;; Configure LSP
+  ;; REMEMBER: SLOOOOOOWWWWWW on laptop, but disabled in init.el ATM
   (setq
    lsp-haskell-plugin-import-lens-code-lens-on nil
    lsp-headerline-breadcrumb-enable            t

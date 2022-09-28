@@ -3,7 +3,7 @@
 let
   gitConfig = {
     checkout.defaultRemote = "origin";
-    commit.gpgSign = true;
+    commit.gpgSign = false; # true; Doesn't work out of the box on pete
     core.editor = "emacs";
     credential.helper = "store";
     init.defaultBranch = "master";

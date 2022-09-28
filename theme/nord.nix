@@ -43,6 +43,7 @@ rec {
 
   # emacs-theme
   emacs-theme = "doom-nord";
+  # kitty-theme = "nord"; kitty themes don't work at the moment
 
   # Matching wallpaper
   wallpaper    = ../assets/wallpaper/cold.png;

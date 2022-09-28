@@ -4,5 +4,5 @@
   syscfg   = import ./system-configuration.nix;
   homecfg  = import ./home-configuration.nix;
   isLaptop = true;
-  theme    = import ../../theme/tomorrow-night.nix;
+  theme    = import ../../theme/nord.nix;
 }
